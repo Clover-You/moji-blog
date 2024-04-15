@@ -41,6 +41,12 @@ export function Header() {
             </Link>
           </NavbarItem>
           <NavbarItem>
+            <Link color="foreground" href="/mojiblog-readme">
+              MojiBlog
+            </Link>
+          </NavbarItem>
+
+          <NavbarItem>
             <Link color="foreground" href="https://github.com/Clover-You" target="_blank">
               <GitHubIcon className="w-[18px] text-center" fill="var(--font-color)" />
             </Link>
@@ -65,14 +71,18 @@ export function Header() {
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
+            <Link color="foreground" href="/mojiblog-readme">
+              MojiBlog
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
             <Link color="foreground" href="https://github.com/Clover-You" target="_blank" className="flex gap-2">
               <GitHubIcon className="w-[18px] text-center" fill="var(--font-color)" />
               <span>GitHub</span>
             </Link>
           </NavbarMenuItem>
-        </NavbarMenu>
 
-        {/* <div className="sm:hidden flex-1"></div> */}
+        </NavbarMenu>
 
         <NavbarContent className="sm:hidden" justify="end">
           <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
