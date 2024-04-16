@@ -1,0 +1,31 @@
+[website]
+# 网站标题
+title = "Clover's Blog"
+# 副标题
+subtitle = "subtitle"
+# 网站描述
+description = "Hey, I am Clover You, welcome here!"
+# 网站关键字
+keywords = ["blog", "develop"]
+# 博客作者名称
+author = "Clover You"
+# 部署后网站地址
+domain = "https://www.ctong.top"
+# 左上角 logo 图片
+logo = "/logo@185×185.webp"
+# 左上角 logo 文字
+logoText = "CLOVER"
+# 底部版权文案信息
+copyright = "CC BY-NC-SA 4.02024-PRESENT © Clover You"
+
+[theme]
+# 默认主题模式
+# mode = "light"
+mode = "dark"
+
+[navbar]
+items = [
+  { url = "/about", label = "About" },
+  { url = "/", label = "Blog" },
+  { url = "https://github.com/Clover-You", iconClass = "icon-[mdi--github]", target = "_blank" },
+]

@@ -11,10 +11,12 @@ export function GoTopBtn() {
   }
 
   const windowScroll = useWindowScroll()
+  const showClass = windowScroll.y > 300 ? 'opacity-30' : '!opacity-0 pointer-events-none'
+
   return (
     <Button
       isIconOnly
-      className={`fixed w-10 h-10 right-3 bottom-20 hover:opacity-100 ${windowScroll.y > 300 ? 'opacity-30' : '!opacity-0 pointer-events-none'} `}
+      className={`fixed w-10 h-10 right-3 bottom-20 hover:opacity-100 ${showClass} `}
       variant="light"
       onClick={toTop}
     >

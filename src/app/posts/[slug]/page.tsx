@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import fg from 'fast-glob'
+import fs from 'fs-extra'
+import toml from 'toml'
 
 import dayjs from 'dayjs'
 import { getPostBySlug, getSlugs } from '#/core/post'
@@ -12,25 +15,25 @@ interface Props {
   }
 }
 
-// 静态metadata
-// export const metadata: Metadata = {
-//   title: ''
-// }
-
 // dynamic metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const [configPath] = await fg('_config.toml')
+  const configContent = await fs.readFile(configPath, 'utf-8')
+  const { website } = toml.parse(configContent) as Config
+
   const post = await getPostBySlug(params.slug)
   const { title } = post ?? {}
+  const rawTitle = website.title ?? 'Moji\' Blog'
 
-  if (title) {
-    return {
-      title: `Clover'sBlog - ${title}`,
-    }
+  const metadata: Metadata = {
+    title: rawTitle,
+    keywords: [...website.keywords ?? [], ...post?.tags ?? []],
   }
 
-  return {
-    title: `Clover'sBlog`,
-  }
+  if (title)
+    metadata.title = `${rawTitle} - ${title}`
+
+  return metadata
 }
 
 export async function generateStaticParams() {
