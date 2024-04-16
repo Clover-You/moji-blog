@@ -25,7 +25,8 @@ mode = "dark"
 
 [navbar]
 items = [
-  { url = "/about", label = "About" },
   { url = "/", label = "Blog" },
+  { url = "/about", label = "About" },
+  { url = "/mojiblog-readme", label = "MojiBlog" },
   { url = "https://github.com/Clover-You", iconClass = "icon-[mdi--github]", target = "_blank" },
 ]
