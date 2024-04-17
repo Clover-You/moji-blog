@@ -1,6 +1,6 @@
 ---
 title: About
-autor: Clover
+author: Clover
 date: 2024-04-10 16:55:27
 ---
 

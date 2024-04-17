@@ -2,11 +2,6 @@
   font-size: 16px;
   word-wrap: break-word;
   border-radius: 10px;
-
-
-  /* --shiki-dark: #3b3b3b;
-  --shiki-dark-bg: #000; */
-
 }
 
 .MarkdownBody strong {
@@ -90,6 +85,11 @@
   margin-top: 0;
   margin-bottom: 16px;
 }
+
+.MarkdownBody p:last-child {
+  margin-bottom: 0;
+}
+
 
 .MarkdownBody a {
   font-weight: inherit;

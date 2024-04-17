@@ -1,6 +1,6 @@
 ---
 title: 摘录
-autor: Clover
+author: Clover
 date: 2024-04-10 15:28:06
 categories: essay
 pid: 8976842

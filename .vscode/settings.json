@@ -25,5 +25,8 @@
     "yaml",
     "toml",
     "astro"
+  ],
+  "cSpell.words": [
+    "Moji"
   ]
 }

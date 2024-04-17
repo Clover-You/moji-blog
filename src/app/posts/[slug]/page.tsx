@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import { getPostBySlug, getSlugs } from '#/core/post'
 import { PostView } from '#/components/post-view'
 import { Goback } from '#/components/goback'
+import { appendStrPrefix } from '#/article'
 
 interface Props {
   params: {
@@ -59,7 +60,7 @@ export default async function PostPage(props: Props) {
           <p className="opacity-50">
             {getLocaleString(post.date, 'en')}
             <span>
-              {` · ${post.duration}`}
+              {appendStrPrefix(post.duration, ' · ')}
             </span>
           </p>
         </div>

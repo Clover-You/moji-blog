@@ -25,7 +25,7 @@ export function MojiNavbar(props: MojiNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const theme = useTheme()
 
-  function test() {
+  function changeThemeMode() {
     theme.setTheme(theme.theme === 'dark' ? 'light' : 'dark')
   }
 
@@ -58,7 +58,7 @@ export function MojiNavbar(props: MojiNavbarProps) {
           })}
 
           <NavbarItem>
-            <div color="foreground" className="cursor-pointer" onClick={test}>
+            <div color="foreground" className="cursor-pointer" onClick={changeThemeMode}>
               <span className="icon-[ph--sun] dark:icon-[ph--moon] !w-5 !h-5 align-text-bottom"></span>
             </div>
           </NavbarItem>
@@ -89,7 +89,7 @@ export function MojiNavbar(props: MojiNavbarProps) {
           <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
         </NavbarContent>
 
-        <div color="foreground" className="cursor-pointer sm:hidden" onClick={test}>
+        <div color="foreground" className="cursor-pointer sm:hidden" onClick={changeThemeMode}>
           <span className="icon-[ph--sun] dark:icon-[ph--moon] !w-5 !h-5 align-text-bottom"></span>
         </div>
       </Navbar>

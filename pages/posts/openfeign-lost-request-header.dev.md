@@ -1,6 +1,6 @@
 ---
 title: OpenFeign 远程调用丢失请求头
-autor: Clover
+author: Clover
 date: 2024-04-07 21:45:09
 lang: zh-CN
 tags: java,

@@ -16,7 +16,7 @@ export function GoTopBtn() {
   return (
     <Button
       isIconOnly
-      className={`fixed w-10 h-10 right-3 bottom-20 hover:opacity-100 ${showClass} `}
+      className={`fixed w-10 h-10 right-3 bottom-20 hover:opacity-100 ${showClass} z-10 `}
       variant="light"
       onClick={toTop}
     >

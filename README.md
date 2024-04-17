@@ -16,7 +16,7 @@ Flowchart drawing: <https://www.iodraw.com/whiteboard/>
 | pid        | string              | post id, each post should have a unique id                                                                                      |         | √       | pid: 6f604b36-5d8f-4227-ac85-db43927cf53b       |
 | last-edit  | yyyy-MM-dd HH:mm:ss | the date of the last edit of the post, if not, used date property value. If it is more than 3 months, the post may be outdated. | `#date` | ×       | last-edit: 2024-09-15 14:23:49                  |
 | duration   | string              | estimated reading time                                                                                                          | -       | ×       | duration: 15min                                 |
-| autor      | string              | post autor                                                                                                                      |         | x       | autor: Clover                                   |
+| author      | string              | post author                                                                                                                      |         | x       | author: Clover                                   |
 
 ## Getting Started
 

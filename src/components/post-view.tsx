@@ -22,6 +22,7 @@ export function PostView(props: PostViewProps) {
 function ImagePreview() {
   const [imagePreviewState, setImagePreviewState] = React.useState(false)
   const imageModel = React.useRef<HTMLImageElement>()
+  let invertClass = 'filter dark:invert'
 
   useEvent('click', (e) => {
     const path = Array.from(e.composedPath())
@@ -35,6 +36,10 @@ function ImagePreview() {
       return
 
     imageModel.current = first as HTMLImageElement
+
+    if (!first.classList.contains('dark:invert'))
+      invertClass = ''
+
     setImagePreviewState(true)
   })
 
@@ -43,20 +48,23 @@ function ImagePreview() {
       isOpen={imagePreviewState}
       onOpenChange={setImagePreviewState}
       backdrop="blur"
-      size="full"
       placement="center"
+      size="full"
       classNames={{
         base: 'bg-transparent',
       }}
     >
-      <ModalContent className="mx-auto">
+      <ModalContent
+        className="mx-auto"
+        onClick={() => setImagePreviewState(false)}
+      >
         <ModalBody className="overflow-auto flex items-center justify-center">
           <Image
             src={imageModel.current?.src ?? ''}
             alt={imageModel.current?.alt ?? ''}
             removeWrapper
-            className="max-w-full max-h-full z-10 bg-cover"
-
+            className={`max-w-full max-h-full z-10 bg-cover ${invertClass}`}
+            onClick={e => e.stopPropagation()}
           />
         </ModalBody>
       </ModalContent>

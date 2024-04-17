@@ -1,6 +1,6 @@
 ---
 title: MyBatis 无法捕获MSSQL异常
-autor: Clover
+author: Clover
 date: 2024-04-07 20:50:01
 lang: zh-CN
 tags: java,

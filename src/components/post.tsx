@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import { getPostList } from '#/core/post'
+import { appendStrPrefix } from '#/article'
 
 export async function PostList() {
   const postsRaw = await getPostList()
@@ -51,7 +52,7 @@ export async function PostList() {
                       </div>
                       <div className="flex gap-2 items-center">
                         <span className="whitespace-nowrap text-sm">{getLocaleString(post.date, 'en')}</span>
-                        <span className="whitespace-nowrap text-sm">{post.duration}</span>
+                        <span className="whitespace-nowrap text-sm">{appendStrPrefix(post.duration, ' · ')}</span>
                       </div>
                     </li>
                   </Link>
