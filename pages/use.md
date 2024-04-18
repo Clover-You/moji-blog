@@ -59,7 +59,7 @@ lastEdit: 2024-04-18 10:32:24
 - [NextUI](https://nextui.org/): Vercel 开源的 UI 库，非常好看，但是有些东西还是要折腾
 - [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) 一个流行的样式库，也是非常好用的，但是代码也是真的难看，个人项目推荐 [UnoCSS](https://github.com/unocss/unocss)
 
-> 你现在在看的这个网站就是基于 [NextUI](https://nextui.org/) + [NextUI](https://nextui.org/) + [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) 开发的，并且部署在 [Vercel](https://vercel.com/)
+> 你现在在看的这个网站就是基于 [NextJS](https://nextjs.org/) + [NextUI](https://nextui.org/) + [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) 开发的，并且部署在 [Vercel](https://vercel.com/)
 
 ## CLI
 - [zsh](https://zsh.org/) - Shell
