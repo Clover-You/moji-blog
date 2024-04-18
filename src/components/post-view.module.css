@@ -86,6 +86,16 @@
   margin-bottom: 16px;
 }
 
+.MarkdownBody ul>li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.MarkdownBody li {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
 .MarkdownBody ul>li:before {
   content: "";
   position: absolute;
