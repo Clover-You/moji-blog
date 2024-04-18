@@ -34,6 +34,7 @@ service SearchService {
   rpc Search(SearchRequest) returns(SearchResult);
 }
 ```
+
 - 第一行 `syntax = "proto3";` 表示使用 `proto3` 的语法，默认使用 `proto3` 的语法。
 - `message` 声明的方式类似声明结构体，是 `proto` 中的基本结构。
 - `SearchRequest` 中定义了三个字段，每个字段都会有名称和类型。
@@ -94,7 +95,7 @@ message Company {
 
 在 protobuf 中定义 map 类型
 
-```
+```txt
 map<key_type, value_type> map_field = N;
 ```
 
@@ -113,6 +114,7 @@ proto 并不是传统的键值类型，在声明的 proto 文件中是不会出�
 一个 `message` 中的字段应当遵循一下规则
 
 - `singular` 在一个良好的 `message` 中，有且只能有 0 个或者 1 个该字段，即能重复存在同一个字段，以下声明会在编译时出现错误。
+
   ```proto
   syntax = "proto3";
 
@@ -122,6 +124,7 @@ proto 并不是传统的键值类型，在声明的 proto 文件中是不会出�
     string number = 3;//字段重复
   }
   ```
+
 - `optional` 字段是否应该被设置
   - `set` 将会被序列化
   - `unset` 不会被序列化
