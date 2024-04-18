@@ -65,7 +65,7 @@ lastEdit: 2024-04-18 10:32:24
 - [zsh](https://zsh.org/) - Shell
 - [pnpm](https://pnpm.io/) - 软件包管理器，类似于 npm
 - [eslint](https://eslint.org/) - Linter & Formatter
-  - [Prettier](https://prettier.io/) 好用，但是我不希望它那顽固的样子，可配置项太少了格式化出来的样式我不喜欢，但是多人协作这玩意儿是真香。
+  - [Prettier](https://prettier.io/) 好用，但是我不喜欢它那顽固的样子，可配置项太少了格式化出来的样式我不喜欢，但是多人协作这玩意儿是真香。
   ```ts
   watch(() => props.name, (value) => {
     console.log('hello world')
