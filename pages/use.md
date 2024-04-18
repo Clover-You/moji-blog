@@ -28,8 +28,8 @@ lastEdit: 2024-04-18 10:32:24
 
 ## MacOS Productivity
 
-- [Bob](https://bobtranslate.com/): 翻译和 ORC
-- [Obsidian](https://obsidian.md/): 非常灵活的写作工具，我将它和iCloud搭配
+- [Bob](https://bobtranslate.com/): 翻译和 OCR
+- [Obsidian](https://obsidian.md/): 非常灵活的写作工具，我将它和 iCloud 搭配
 - [Magnet](https://magnet.crowdcafe.com/): 窗口管理
 - [uTools](https://www.u.tools/): 一个多功能、现代化的工具平台
 - [SwitchHosts](https://github.com/oldj/SwitchHosts): 管理 Hosts
