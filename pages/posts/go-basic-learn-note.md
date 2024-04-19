@@ -41,3 +41,36 @@ go env -w GOPROXY=https://goproxy.io,direct
 ```
 
 设置后需要重启 Vs Code 然后重复以上操作安装即可，可能需要一些时间。到此编辑器基本配置完毕可以开始写代码了。
+
+## 指针
+
+### new 和 make
+
+`new` 和 `make` 是内置函数，这两个函数有点类似但是也有不同
+
+```go
+func new(Type) *Type
+```
+
+- 这个函数的返回值是一个指针类型
+- 接收一个"类型"参数
+- 用于给指针分配内存空间
+
+```go
+func make(t Type, size ...IntegerType) Type
+```
+
+- 返回值是一个**值**不是指针
+- 接受的第一个参数是一个类型，不定长参数列表根据**传入类型**的不同而不同
+- 用于给切片、映射表、通道分配内存
+
+```go
+str := new(string) // string 指针
+num := new(int32)  // int32 指针
+nums := new([]int) // int 切片指针
+
+makeNums := make([]int, 10, 100)    // 创基一个长度为10容量为100的int切片
+makeMap := make(map[string]int, 10) // 创建一个容量为 10 的映射表
+makeChan := make(chan int, 10)      // 创建一个缓冲区大小为 10 的通道
+
+```
