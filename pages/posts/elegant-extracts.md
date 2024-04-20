@@ -2,7 +2,7 @@
 title: 摘录
 author: Clover
 date: 2024-04-10 15:28:06
-categories: essay
+categories: Essay
 pid: 8976842
 ---
 

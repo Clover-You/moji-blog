@@ -3,7 +3,7 @@ title: 使用 NextJS 重构我的博客
 autor: Clover
 date: 2024-04-16 15:09:50
 lang: zh-CN
-categories: essay
+categories: Essay
 pid: d9f25325-0e89-4ff9-b97d-6121b8509b8a
 last-edit: 2024-04-16 15:12:44
 duration: 10min

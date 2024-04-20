@@ -2,7 +2,7 @@
 title: Git Submodule
 author: Clover
 date: 2024-04-20 23:35:04
-categories: essay
+categories: Essay
 pid: ca4f9422ec5e384d90fb26a54bcfd1b79b30
 last-edit: 2024-04-20 23:45:06
 duration: 4min
