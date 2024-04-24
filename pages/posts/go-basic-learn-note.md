@@ -11,6 +11,8 @@ author: Clover
 ---
 本文主要记录博主 Go 语言的学习过程和结果，参考 [Golang中文学习文档](https://golang.halfiisland.com/essential/std/0.intro.html)，本文不保证内容的原创性
 
+> Golang 是一个固执己见且叛逆的孩子，很多语法都反其道而行之让人无语至极
+
 ## 准备开始
 
 MacOS(Linux) 通过 [brew](https://brew.sh/) 包管理器安装 golang，安装完后基本就已经可以了
