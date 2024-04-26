@@ -373,6 +373,263 @@ arr = arr[:0:0]
 fmt.Println(arr) // []
 ```
 
+## 映射表
+
+一般映射表数据结构实现通常有两种，哈希表(HashTable)和搜索树(SearchTree)，区别在于前者无序后者有序。在 Go 中，`map` 的实现是基于哈希桶(也是一种哈希表)，所以也是无序的。
+
+### 初始化
+
+在 Go 中，map 的键类型必须是可比较的，例如`string` `int` 是可比较的，而 `[]int` 是不可比较的。初始化 `map` 有两种方法，第一种是字面量
+
+```go
+map[keyType]valueType{}
+```
+
+例如
+
+```go
+mp := map[string]string{
+ "name": "CloverYou",
+}
+
+mp := map[int]string{
+ 0: "CloverYou",
+}
+```
+
+第二种方式是使用 `make` 函数创建，对于 `map` 类型，它接受不了两个参数，分别是类型和初始容量。
+
+```go
+mp := make(map[string]int, 10)
+
+mp := make(map[int]string, 8)
+```
+
+map 是引用类型，零值或未初始化的 map 可以访问，但是无法存放元素，所以必须为其分配内存。
+
+```go
+var mp1 map[string]string
+mp1["name"] = "CloverYou"
+```
+
+以上代码抛出一个 `panic`
+
+```shell
+panic: assignment to entry in nil map
+```
+
+> 在初始化 map 时应当尽量分配一个合理的容量，以减少扩容次数
+
+## 访问
+
+访问 map 的方式就像通过索引访问一个数组一样
+
+```go
+mp := make(map[string]string, 2)
+
+mp["age"] = "21"
+mp["sex"] = "man"
+mp["name"] = "CloverYou"
+
+fmt.Println(mp["name"]) // CloverYou
+fmt.Println(mp["nickname"]) // ""
+```
+
+通过以上代码可以发现，当访问一个不存在的元素 `nickname` ，依旧会有返回值，map 对于不存在的键会返回对应类型的零值。在访问 map 的时候其实会有两个返回值，第一个是返回对应类型的值，第二个是返回一个布尔值，表示这个键是否存在。
+
+```go
+mp := make(map[string]string, 2)
+
+mp["age"] = "21"
+mp["sex"] = "man"
+mp["name"] = "CloverYou"
+
+nickname, exist := mp["nickname"]
+fmt.Println(nickname, exist) // “” false
+```
+
+可以使用 `len` 取 map 的长度
+
+```go
+mp := make(map[string]string, 2)
+mp["name"] = "CloverYou"
+fmt.Println(len(mp)) // 1
+```
+
+### 存值
+
+map 存值的方式和数组一样
+
+```go
+mp := make(map[string]int, 2)
+mp["age"] = 21
+fmt.Println(mp) // map[age:21]
+```
+
+如果使用一个已存在的键，那么会覆盖掉原有的值
+
+```go
+mp := make(map[string]int, 2)
+mp["age"] = 21
+fmt.Println(mp) // map[age:21]
+
+if _, exist := mp["age"]; exist {
+ mp["age"] = 22
+}
+fmt.Println(mp) // map[age:22]
+```
+
+如果使用的是 `math.Nan()` 作为键的时候，是无法覆盖原有值的。
+
+```go
+mp := make(map[float64]string, 10)
+
+mp[math.NaN()] = "Clover You"
+mp[math.NaN()] = "My Name"
+
+fmt.Println(mp) // map[NaN:My Name NaN:Clover You]
+```
+
+通过结果观察，相同的键并没有被覆盖反而存在多个，这也无法判断其是否存在同时也无法正常取值。
+> 因为NaN是IEE754标准所定义的，其实现是由底层的汇编指令UCOMISD完成，这是一个无序比较双精度浮点数的指令，该指令会考虑到NaN的情况，因此结果就是任何数字都不等于NaN，NaN也不等于自身，这也造成了每次哈希值都不相同
+
+### 删除
+
+可以通过 `delete` 函数去删除一个指定的元素
+
+```go
+func delete(m map[Type]Type1, key Type)
+```
+
+```go
+mp := make(map[string]int, 2)
+mp["age"] = 21
+fmt.Println(mp) // map[age:21]
+
+delete(mp, "age")
+
+fmt.Println(mp) // map[]
+```
+
+如果是一个 NaN 键，那么无法删除
+
+### 遍历 map
+
+可以通过 `for range` 去遍历 map
+
+```go
+mp := map[string]int{
+ "a": 0,
+ "b": 1,
+ "c": 2,
+ "d": 3,
+}
+for key, val := range mp {
+ fmt.Println(key, val)
+}
+```
+
+以上代码结果
+
+```shell
+d 3
+a 0
+b 1
+c 2
+```
+
+### 清空 map
+
+Go 1.21 版本之前如果需要清空 map，那么需要遍历去delete
+
+```go
+mp := map[string]int {
+  "a": 0
+}
+
+for key := range mp {
+  delete(mp, key)
+}
+
+fmt.Println(mp) // map[]
+```
+
+但在 Go1.21 之后和数组一样，可以使用 `clear` 函数来清空 map 数据。
+
+```go
+ mp := map[string]int{
+  "a": 0,
+ }
+ clear(mp)
+ fmt.Println(mp) // map[]
+```
+
+### Set
+
+Set 是一种无序的，不包含重复元素的集合，Go 没有提供类似的数据结构实现，但是 map 的 key 是无序且不可重复的，可以用 map 来替代 set（类似 Java 中的 HashSet）。
+
+```go
+set := make(map[string]struct{}, 10)
+set["w"] = struct{}{}
+fmt.Println(set) // map[w:{}]
+```
+
+**使用空结构体不会占用内存**
+
+map 不是一个一个内存安全型的数据结构。map 内部有读写检测机制，如果冲突会触发 `fatal error` ，例如在多线程情况下，读写 map 那么有可能会触发。以下程序就容易引发这个异常
+
+```go
+group := sync.WaitGroup{}
+
+group.Add(2)
+
+mp = make(map[string]int, 10)
+
+for i := 0; i < 10; i++ {
+ go func() {
+
+  for i := 0; i < 100; i++ {
+   mp["age"] = i
+  }
+
+  for i := 0; i < 100; i++ {
+   fmt.Println(mp["age"])
+  }
+  group.Done()
+ }()
+}
+group.Wait()
+```
+
+```shell
+fatal error: concurrent map writes
+```
+
+可以使用 `sync.Map` 来解决这个问题
+
+```go
+group := sync.WaitGroup{}
+
+group.Add(10)
+
+syncMap := sync.Map{}
+
+for i := 0; i < 10; i++ {
+ go func() {
+
+  for i := 0; i < 100; i++ {
+   syncMap.Store("age", i)
+  }
+
+  for i := 0; i < 100; i++ {
+   fmt.Println(syncMap.Load("age"))
+  }
+  group.Done()
+ }()
+}
+group.Wait()
+```
+
 ## 指针
 
 ### new 和 make
