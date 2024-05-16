@@ -26,7 +26,8 @@ export function MojiNavbar(props: MojiNavbarProps) {
   const theme = useTheme()
 
   function changeThemeMode() {
-    theme.setTheme(theme.theme === 'dark' ? 'light' : 'dark')
+    const mode = theme.theme === 'dark' ? 'light' : 'dark'
+    theme.setTheme(mode === theme.systemTheme ? 'system' : mode)
   }
 
   return (

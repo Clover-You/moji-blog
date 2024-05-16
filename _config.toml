@@ -6,7 +6,10 @@ subtitle = "subtitle"
 # 网站描述
 description = "Hey, I am Clover You, welcome here!"
 # 网站关键字
-keywords = ["blog", "develop"]
+keywords = [
+  "blog",
+  "develop"
+]
 # 博客作者名称
 author = "Clover You"
 # 部署后网站地址
