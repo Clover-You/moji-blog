@@ -29,7 +29,7 @@ git submodule add <url> <target_path>
 
 此时会在项目 root path 中添加 `.gitmodules` 文件，其内容为
 
-```txt
+```ini
 [submodule "src-tauri/src/protos"]
   path = src-tauri/src/protos
   url = git@github.com:moji-open-source/moji-chat-proto.git
