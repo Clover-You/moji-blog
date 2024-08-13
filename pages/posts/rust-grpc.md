@@ -10,7 +10,7 @@ lastEdit: 2024-08-13 15:04:16
 ---
 这是我使用的 proto 文件
 
-```protobuf
+```proto
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
 
