@@ -6,7 +6,7 @@ duration: 10min
 pid: 64fa4f0e0050724937a88327037466b0be9d
 tags: Rust
 categories: Rust
-lastEdit: 2024-08-13 15:04:16
+lastEdit: 2024-08-27 14:18:21
 ---
 
 在 gRPC 开发中，首先需要定义通信接口，这通常通过使用 Protocol Buffers（简称 Protobuf）来完成。Protobuf 是一种灵活、高效的序列化格式，广泛用于定义 gRPC 的消息格式和服务接口。以下是我们定义的 `proto` 文件，它描述了用户登录和获取用户信息的 gRPC 接口：
