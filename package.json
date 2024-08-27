@@ -46,7 +46,7 @@
     "react-dom": "^18.3.1",
     "react-use": "^17.5.1",
     "toml": "^3.0.0",
-    "unplugin-react-markdown": "^0.1.4"
+    "unplugin-react-markdown": "^0.1.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.0",
