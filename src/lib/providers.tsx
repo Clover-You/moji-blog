@@ -7,12 +7,10 @@ interface ProviderProps extends PropsWithChildren {
   defaultTheme?: string
 }
 
-export function Provider(props: ProviderProps) {
+export function Provider({ children }: ProviderProps) {
   return (
-    <>
-      <ThemeProvider enableSystem enableColorScheme attribute="class">
-        <NextUIProvider>{props.children}</NextUIProvider>
-      </ThemeProvider>
-    </>
+    <ThemeProvider enableSystem enableColorScheme attribute="class">
+      <NextUIProvider>{children}</NextUIProvider>
+    </ThemeProvider>
   )
 }

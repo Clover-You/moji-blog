@@ -9,6 +9,7 @@ interface Post {
   title: string
   /**
    * 内容
+   * @deprecated
    */
   content: string
   /**

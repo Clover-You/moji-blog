@@ -1,9 +1,12 @@
 import { PostList } from '#/components/post'
+import { getPostList } from '#/core/post'
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPostList()
+
   return (
     <div className="container mx-auto slide-enter-content">
-      <PostList />
+      <PostList posts={posts} />
     </div>
   )
 }

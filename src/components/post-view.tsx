@@ -5,16 +5,19 @@ import React from 'react'
 import styles from './post-view.module.css'
 
 interface PostViewProps extends React.PropsWithChildren {
-  html: string
+  content?: React.ReactNode
 }
-export function PostView(props: PostViewProps) {
+
+export function PostView({ children, content }: PostViewProps) {
   return (
     <div
       className={`${styles.MarkdownBody} slide-enter-content`}
     >
       <ImagePreview />
-      <div dangerouslySetInnerHTML={{ __html: props.html }} />
-      {props.children}
+      <div>
+        {content}
+      </div>
+      {children}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getPageByName, getPageMap } from '#/core/post'
+import { getPageMap } from '#/core/post'
 import { PostView } from '#/components/post-view'
 
 interface Props {
@@ -13,19 +13,33 @@ export async function generateStaticParams() {
   return Object.keys(pageMap).map(page => ({ page }))
 }
 
+async function getPage(page: string) {
+  try {
+    return await import(`#/../pages/${page}.md`)
+  }
+  catch (err) {
+    console.error(err)
+    return undefined
+  }
+}
+
 export default async function Page(props: Props) {
-  const page = await getPageByName(props.params.page)
+  const page = await getPage(props.params.page)
 
   if (!page)
     return notFound()
 
+  const { default: MarkdownView, forntmatter } = page
+
   return (
     <div className="mx-auto px-6 container">
       <div className="prose mb-8">
-        <h1>{page.meta.title}</h1>
+        <h1>{forntmatter.title}</h1>
       </div>
 
-      <PostView html={page.content} />
+      <PostView>
+        <MarkdownView />
+      </PostView>
     </div>
   )
 }

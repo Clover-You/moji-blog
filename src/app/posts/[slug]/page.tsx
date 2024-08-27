@@ -42,32 +42,44 @@ export async function generateStaticParams() {
   return slugs.map(slug => ({ slug }))
 }
 
-export default async function PostPage(props: Props) {
-  const post = await getPostBySlug(props.params.slug)
+async function getPost(slug: string) {
+  try {
+    return await import(`#/../pages/posts/${slug}.md`)
+  }
+  catch (err) {
+    console.error(err)
+    return undefined
+  }
+}
 
-  if (!post)
+export default async function PostPage(props: Props) {
+  const postModule = await getPost(props.params.slug)
+
+  if (!postModule)
     return notFound()
+
+  const { default: MarkdownView, forntmatter } = postModule
 
   function getLocaleString(date: Date | string, lang: string) {
     return dayjs(date).toDate().toLocaleString(lang, { dateStyle: 'medium' })
   }
 
   return (
-    <>
-      <div className="mx-auto container">
-        <div className="prose mb-8">
-          <h1>{post.title}</h1>
-          <p className="opacity-50">
-            {getLocaleString(post.date, 'en')}
-            <span>
-              {appendStrPrefix(post.duration, ' · ')}
-            </span>
-          </p>
-        </div>
-        <PostView html={post.content}>
-          <Goback href="/" />
-        </PostView>
+    <div className="mx-auto container">
+      <div className="prose mb-8">
+        <h1>{forntmatter.title}</h1>
+        <p className="opacity-50">
+          {getLocaleString(forntmatter.date, 'en')}
+          <span>
+            {appendStrPrefix(forntmatter.duration, ' · ')}
+          </span>
+        </p>
       </div>
-    </>
+      <PostView
+        content={<MarkdownView />}
+      >
+        <Goback href="/" />
+      </PostView>
+    </div>
   )
 }

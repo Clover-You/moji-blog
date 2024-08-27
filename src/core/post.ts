@@ -2,17 +2,6 @@ import process from 'node:process'
 import fg from 'fast-glob'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
-import MarkdownIt from 'markdown-it'
-
-import { useShiki } from './shiki'
-
-const markdown = MarkdownIt({
-  html: true,
-  breaks: true,
-  linkify: true,
-})
-
-useShiki(markdown)
 
 const IsPro = process.env.NODE_ENV === 'production'
 const IsDev = process.env.NODE_ENV === 'development'
@@ -35,20 +24,18 @@ export async function getPostList() {
 
   const files = await getMarkdownFiles('pages/posts/*.md')
 
-  let posts = await Promise.all(files.map<Promise<Post>>(async (file) => {
+  const posts = await Promise.all(files.map<Promise<Post>>(async (file) => {
     const raw = await fs.readFile(file, 'utf-8')
-    const { data, content } = matter(raw)
+    const { data } = matter(raw)
 
-    const html = markdown.render(content)
-
-    const [_, fileFullPath] = file.match(/pages\/posts\/(.*)\.md/) ?? []
+    const [_, fileFullPath] = file.match(/pages\/posts\/(.*)\.md$/) ?? []
     const fileNameAlias = fileFullPath.replaceAll('/', '-')
 
     return {
       ...data,
       date: new Date(data.date),
       pid: data.pid,
-      content: html,
+      content: '',
       author: ['Clover'],
       categories: data.categories?.split(',') ?? [],
       more: '',
@@ -58,7 +45,6 @@ export async function getPostList() {
       cover: data.cover,
     }
   }))
-  posts = posts.filter(Boolean)
 
   posts.sort((a, b) => +new Date(b?.date ?? 0) - +new Date(a?.date ?? 0))
 
@@ -118,15 +104,12 @@ async function getPages() {
 
   return await Promise.all(files.map(async (file) => {
     const raw = await fs.readFile(file, 'utf-8')
-    const { data, content } = matter(raw)
-
-    const html = markdown.render(content)
+    const { data } = matter(raw)
 
     const [_, fileFullPath] = file.match(/pages\/(.*)\.md/) ?? []
     const fileNameAlias = fileFullPath.replaceAll('/', '-')
 
     return {
-      content: html,
       page: fileNameAlias,
       meta: data,
     }

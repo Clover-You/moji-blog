@@ -21,7 +21,7 @@ interface MojiNavbarProps {
   logo?: string
 }
 
-export function MojiNavbar(props: MojiNavbarProps) {
+export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const theme = useTheme()
 
@@ -39,15 +39,15 @@ export function MojiNavbar(props: MojiNavbarProps) {
       >
         <Link href="/" color="foreground">
           <NavbarBrand>
-            <Image src={props.logo} width={25} height={25} radius="none" />
-            <p className="font-bold text-inherit ml-2">{props.logoText}</p>
+            <Image src={logo} width={25} height={25} radius="none" />
+            <p className="font-bold text-inherit ml-2">{logoText}</p>
           </NavbarBrand>
         </Link>
 
         <NavbarContent className="hidden sm:flex gap-4 navbar-content" justify="center">
-          {props.items?.map((item, index) => {
+          {items?.map((item, index) => {
             return (
-              <NavbarItem key={index}>
+              <NavbarItem key={item.label ?? index}>
                 <Link color={item.textColor} href={item.url} target={item.target} className="flex gap-2">
                   {item.iconClass
                     ? <span className={`${item.iconClass} align-text-bottom !w-5 !h-5 text-center`} style={{ fontSize: item.iconSize ?? 20 }}></span>
