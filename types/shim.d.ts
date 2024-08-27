@@ -3,7 +3,7 @@ declare module '*.md' {
 
   export default MarkdownComponent
 
-  export const forntmatter: {
+  export const frontmatter: {
     /**
      * The title of the markdown
      */

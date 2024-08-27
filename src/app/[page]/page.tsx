@@ -29,12 +29,12 @@ export default async function Page(props: Props) {
   if (!page)
     return notFound()
 
-  const { default: MarkdownView, forntmatter } = page
+  const { default: MarkdownView, frontmatter } = page
 
   return (
     <div className="mx-auto px-6 container">
       <div className="prose mb-8">
-        <h1>{forntmatter.title}</h1>
+        <h1>{frontmatter.title}</h1>
       </div>
 
       <PostView>

@@ -58,7 +58,7 @@ export default async function PostPage(props: Props) {
   if (!postModule)
     return notFound()
 
-  const { default: MarkdownView, forntmatter } = postModule
+  const { default: MarkdownView, frontmatter } = postModule
 
   function getLocaleString(date: Date | string, lang: string) {
     return dayjs(date).toDate().toLocaleString(lang, { dateStyle: 'medium' })
@@ -67,11 +67,11 @@ export default async function PostPage(props: Props) {
   return (
     <div className="mx-auto container">
       <div className="prose mb-8">
-        <h1>{forntmatter.title}</h1>
+        <h1>{frontmatter.title}</h1>
         <p className="opacity-50">
-          {getLocaleString(forntmatter.date, 'en')}
+          {getLocaleString(frontmatter.date, 'en')}
           <span>
-            {appendStrPrefix(forntmatter.duration, ' · ')}
+            {appendStrPrefix(frontmatter.duration, ' · ')}
           </span>
         </p>
       </div>
