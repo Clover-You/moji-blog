@@ -7,6 +7,8 @@ categories: Essay
 pid: 610cce36f148474b7ccb3eacabfb8b9bb18b
 last-edit: 2024-08-28 15:39:01
 duration: 18min
+imports: |
+  import { DialogDemo } from '#/components/demo/DialogDemo'
 ---
 
 > 如果你对这个博客感兴趣，欢迎访问我的 [GitHub](https://github.com/moji-open-source/moji-blog) 仓库。它是开源的，你可以查看代码并进行贡献！
@@ -71,6 +73,10 @@ export default nextConfig;
 ```
 
 为了在 Next.js 中处理 Markdown 文件，我编写了 `unplugin-react-markdown` 插件。这个插件允许你在普通的 Markdown 文件中直接引入和使用 React 组件，从而让文章更加“生动”。
+
+这里有个示例，点击它会有好事发生
+
+<DialogDemo /><br/>
 
 它的核心原理是使用 `markdown-it` 将 Markdown 解析为 HTML，然后通过 `jsxify-html` 将普通 HTML 转换为 JSX。最后，这个插件会将 JSX 与 Markdown 元数据中的 `imports` 结合，生成一个完整的 React 组件。
 
