@@ -25,4 +25,4 @@ author: Clover
 最后使用 Java 开发工具 `jstack` 来查调用栈，但是服务器 Java 不带 `jstack` 无奈只能自己下一个 Java 开发版...
 而且因为服务器是 Windows Server ，很多命令和 Linux 不一样，找个 线程 ID 都不知道怎么找，最后用微软的 [ProcessExploer](https://learn.microsoft.com/zh-cn/sysinternals/downloads/process-explorer) 工具来找 CPU 占用最高的那个线程，拿到 ID 后因为他是十进制，需要将它转为十六进制，在 Mac/Linux 可以用 `printf "%x\n" pid` 命令来转
 
-<img src="/images/java-available-production-incident/using-position-source-code.png"/>
+<img src="/images/java-available-production-incident/using-position-source-code.webp"/>

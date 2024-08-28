@@ -27,13 +27,13 @@ brew install go
 
 通过快捷键 `Shift + Command + P` 打开命令面板，输入 `> Go: Install/Update Tools`
 
-<img src="/images/go-basic-learn-note-input-install-go-tools-dark.png" class="hidden dark:block" alt=""/>
-<img src="/images/go-basic-learn-note-input-install-go-tools-light.png" class="dark:hidden" alt=""/>
+<img src="/images/go-basic-learn-note-input-install-go-tools-dark.webp" class="hidden dark:block" alt=""/>
+<img src="/images/go-basic-learn-note-input-install-go-tools-light.webp" class="dark:hidden" alt=""/>
 
 选择后会弹出以下面板，选中所有的 go tools 后点击 OK 按钮或者 Enter 键
 
-<img src="/images/go-basic-learn-note-go-tool-list-dark.png" class="hidden dark:block" alt=""/>
-<img src="/images/go-basic-learn-note-go-tool-list-light.png" class="dark:hidden" alt=""/>
+<img src="/images/go-basic-learn-note-go-tool-list-dark.webp" class="hidden dark:block" alt=""/>
+<img src="/images/go-basic-learn-note-go-tool-list-light.webp" class="dark:hidden" alt=""/>
 
 在安装时可能会因为网络原因导致安装错误，此时我们需要设置代理。
 
