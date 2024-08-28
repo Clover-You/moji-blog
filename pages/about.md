@@ -7,13 +7,13 @@ lastEdit: 2024-08-28 10:27:31
 
 Dear Friends,
 
-Hello, my name is **Clover You**, and my Chinese name is **You Yu**. Thank you for taking the time to visit my website.
+Hello, my name is **Clover You**, and my Chinese name is **尤渔**. You can call me "Clover". Thank you for taking the time to visit my website.
 
 ### The Story Behind My Name
 
 Regarding my English name, **Clover**, I understand it's not a typical name, but it holds special meaning for me. Clover refers to the three-leaf clover, and its variation, the four-leaf clover, is considered a symbol of good luck, representing faith, hope, love, and luck. I chose this name with the hope of being accompanied by good fortune in my future endeavors. I often use this name in online communities or as a code author.
 
-My Chinese name, **You Yu**, originates from a nickname I wasn't particularly fond of. I changed the character for "fish" (鱼) to "fishing" (渔) to give it a wiser connotation. Yes, that's right...wisdom. In Chinese communities, although I initially used the name Clover, due to certain reasons (like Clover being flagged as a sensitive word by miHoYo), I eventually decided to adopt this more personally meaningful Chinese name.
+My Chinese name, **尤渔**, originates from a nickname I wasn't particularly fond of. I changed the character for "鱼" (fish) to "渔" (fishing) to give it a wiser connotation. Yes, that's right...wisdom. In Chinese communities, although I initially used the name Clover, due to certain reasons (like Clover being flagged as a sensitive word by miHoYo), I eventually decided to adopt this more personally meaningful Chinese name.
 
 ### Work and Technical Background
 
