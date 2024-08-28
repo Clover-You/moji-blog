@@ -30,21 +30,21 @@ pnpm vite build --mode pro
 
 打开 IIS 在左侧找到 “网站” 右键 “添加网站”。输入网站名和前端 dist 文件夹地址后点确定即可。此时部署的网站已经可以进行预览了。
 
-<img alt="添加网站" src="/images/iis-publish-vue3-website/add-website.png" width="300px" />
+<img alt="添加网站" src="/images/iis-publish-vue3-website/add-website.png" width="300px" className="dark:invert" />
 
-<img alt="配置网站信息" src="/images/iis-publish-vue3-website/setup-website-info.png" width="400px" />
+<img alt="配置网站信息" src="/images/iis-publish-vue3-website/setup-website-info.png" width="400px" className="dark:invert" />
 
 添加完整后，需要开启 IIS server proxy。双击左侧计算机名称，选择右侧 Application Request Reouting Cache
 
-<img alt="打开 AAR" src="/images/iis-publish-vue3-website/open-aar-config-page.png" width="400px" />
+<img alt="打开 AAR" src="/images/iis-publish-vue3-website/open-aar-config-page.png" width="400px" className="dark:invert" />
 
 在右侧找到 Server Proxy Settings 选项打开代理配置页, 将 Enable proxy 选项勾上即可开启 server proxy
 
-<img alt="开启 proxy" src="/images/iis-publish-vue3-website/enable-aar-proxy.png" width="400px" />
+<img alt="开启 proxy" src="/images/iis-publish-vue3-website/enable-aar-proxy.png" width="400px" className="dark:invert" />
 
 开启代理服务后，双击部署的网站，在主页中选择 URL 重写
 
-<img alt="重写服务 URL" src="/images/iis-publish-vue3-website/open-url-rewriter.png" width="400px" />
+<img alt="重写服务 URL" src="/images/iis-publish-vue3-website/open-url-rewriter.png" width="400px" className="dark:invert" />
 
 ## 为什么需要重写 URL？
 
@@ -65,13 +65,13 @@ pnpm vite build --mode pro
 
 点击右侧操作栏 “添加规则” ，在入站规则区域找到 “空白规则” 为后端服务添加反向代理。
 
-<img alt="插件规则" src="/images/iis-publish-vue3-website/add-proxy-rule.png" width="400px" />
+<img alt="插件规则" src="/images/iis-publish-vue3-website/add-proxy-rule.png" width="400px" className="dark:invert" />
 
 选择 “通配符” 模式，规则为 `*api/*` 用来匹配前缀为 `/api` 的 URI
 
 在操作选项操作类型选择 “重写” 重写的 URL 为后端服务器的地址。
 
-<img alt="添加 api 服务重写规则" src="/images/iis-publish-vue3-website/add-api-proxy-rule.png" width="400px" />
+<img alt="添加 api 服务重写规则" src="/images/iis-publish-vue3-website/add-api-proxy-rule.png" width="400px" className="dark:invert" />
 
 在规则中，假设前端发起 `http://127.0.0.1:8081/api/get_user` 请求，经过 IIS 代理后实际请求为 `http://192.168.2.157:8080/get_user`。
 
@@ -81,8 +81,8 @@ pnpm vite build --mode pro
 
 要解决这个问题，还需要再添加一条重写规则，也就是无论如何，都将 URL 重写到网站的根路径 `/`
 
-<img alt="添加刷新页面 404 处理规则" src="/images/iis-publish-vue3-website/vue-refresh-4041.png" width="400px" />
+<img alt="添加刷新页面 404 处理规则" src="/images/iis-publish-vue3-website/vue-refresh-4041.png" width="400px" className="dark:invert" />
 
-<img alt="添加刷新页面 404 处理规则" src="/images/iis-publish-vue3-website/vue-refresh-4042.png" width="400px" />
+<img alt="添加刷新页面 404 处理规则" src="/images/iis-publish-vue3-website/vue-refresh-4042.png" width="400px" className="dark:invert" />
 
 > 无论如何，这个规则都应该放在最后
