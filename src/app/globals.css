@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@radix-ui/themes/styles.css';
-
 * {
   padding: 0;
   margin: 0;
