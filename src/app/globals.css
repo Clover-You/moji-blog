@@ -61,7 +61,7 @@ body {
   --font-color: #BBBBBB;
   --fg-deeper: #fff;
   --fg-deep: #ddd;
-  --color-border-default: hsl(var(--nextui-default-200));
+  --color-border-default: hsl(var(--moji-default-200));
   --scrollbar-thumb-bg: hsla(0, 0%, 100%, .1);
 }
 

@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss'
 import { nextui } from '@nextui-org/react'
-import plugin from 'tailwindcss/plugin'
 import { addDynamicIconSelectors } from '@iconify/tailwind'
 
 const config: Config = {
@@ -21,15 +20,18 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [nextui(), addDynamicIconSelectors(), plugin(({ matchUtilities, theme }) => {
-    matchUtilities(
-      {
-        'text-shadow': value => ({
-          textShadow: value,
-        }),
+  plugins: [
+    nextui({
+      prefix: 'moji',
+      layout: {
+        borderWidth: {
+          large: '1px',
+          small: '1px',
+          medium: '1px',
+        },
       },
-      { values: theme('textShadow') },
-    )
-  })],
+    }),
+    addDynamicIconSelectors(),
+  ],
 }
 export default config
