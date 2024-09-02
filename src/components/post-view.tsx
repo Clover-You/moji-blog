@@ -11,12 +11,10 @@ interface PostViewProps extends React.PropsWithChildren {
 export function PostView({ children, content }: PostViewProps) {
   return (
     <div
-      className={`${styles.MarkdownBody} slide-enter-content`}
+      className={`${styles.article} slide-enter-content`}
     >
       <ImagePreview />
-      <div>
-        {content}
-      </div>
+      {content}
       {children}
     </div>
   )
