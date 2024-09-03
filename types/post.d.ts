@@ -44,5 +44,9 @@ interface Post {
    * 阅读时长
    */
   duration?: string
+  /**
+   * page description
+   */
+  description?: string
   [key: string]: any
 }

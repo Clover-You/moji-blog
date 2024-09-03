@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const metadata: Metadata = {
     title: rawTitle,
     keywords: [...website.keywords ?? [], ...post?.tags ?? []],
+    description: post?.description,
   }
 
   if (title)
