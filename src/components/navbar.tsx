@@ -16,6 +16,7 @@ interface MojiNavbarProps {
     iconColor?: string
     label?: string
     iconSize?: string
+    title?: string
   }[]
   logoText?: string
   logo?: string
@@ -48,7 +49,7 @@ export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
           {items?.map((item, index) => {
             return (
               <NavbarItem key={item.label ?? index}>
-                <Link color={item.textColor} href={item.url} target={item.target} className="flex gap-2">
+                <Link color={item.textColor} href={item.url} target={item.target} className="flex gap-2" title={item.title ?? item.label}>
                   {item.iconClass
                     ? <span className={`${item.iconClass} align-text-bottom !w-5 !h-5 text-center`} style={{ fontSize: item.iconSize ?? 20 }}></span>
                     : undefined}
@@ -67,19 +68,19 @@ export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
 
         <NavbarMenu className="navbar-content">
           <NavbarMenuItem>
-            <Link color="foreground" href="/">
+            <Link color="foreground" href="/" title="Blog">
               Blog
             </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem>
-            <Link color="foreground" href="/about">
+            <Link color="foreground" href="/about" title="About">
               About
             </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem>
-            <Link color="foreground" href="https://github.com/Clover-You" target="_blank" className="flex gap-2">
+            <Link color="foreground" href="https://github.com/Clover-You" target="_blank" className="flex gap-2" title="GitHub">
               <GitHubIcon className="w-[18px] text-center" fill="var(--font-color)" />
               <span>GitHub</span>
             </Link>

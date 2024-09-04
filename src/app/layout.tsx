@@ -15,10 +15,17 @@ export async function generateMetadata(): Promise<Metadata> {
   const configContent = await fs.readFile(configPath, 'utf-8')
   const { website } = toml.parse(configContent) as Config
 
+  const title = website.title ?? 'Moji\'s Blog'
+
   return {
-    title: website.title ?? 'Moji\'s Blog',
+    title,
     description: website.description,
     keywords: website.keywords ?? ['blog', 'moji'],
+    authors: [{
+      name: website.author ?? 'Moji',
+      url: 'https://www.ctong.top',
+    }],
+    openGraph: { title },
   }
 }
 

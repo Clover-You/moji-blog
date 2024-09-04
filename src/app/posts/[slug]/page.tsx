@@ -32,8 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post?.description,
   }
 
-  if (title)
-    metadata.title = `${rawTitle} - ${title}`
+  if (title) {
+    metadata.title = `${title} - ${rawTitle}`
+    metadata.openGraph = { title: metadata.title }
+  }
 
   return metadata
 }

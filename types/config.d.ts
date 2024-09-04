@@ -11,7 +11,7 @@ interface WebsiteConfig {
   subtitle: string
   description: string
   keywords: string[]
-  author: string
+  author?: string
   domain: string
   logo: string
   logoText: string
