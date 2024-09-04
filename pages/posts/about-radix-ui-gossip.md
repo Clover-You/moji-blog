@@ -14,19 +14,21 @@ lastEdit: 2024-06-14 17:59:51
 
 ```tsx
 function CardFooter({ renderer }) {
-  if (renderer) return renderer(...)
+  if (renderer)
+    return renderer()
   return <>Footer</>
 }
 
 function CardHead({ renderer }) {
-  if (renderer) return renderer(...)
+  if (renderer)
+    return renderer()
   return <>Head</>
 }
 
 function Card({ children }) {
-  return <>
+  return (
     <div>{children}</div>
-  </>
+  )
 }
 ```
 

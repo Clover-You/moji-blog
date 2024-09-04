@@ -54,7 +54,7 @@ const nextConfig = {
   },
 }
 
-export default nextConfig;
+export default nextConfig
 ```
 
 尽管这些问题我最终都解决了，但过程非常耗时且复杂。
