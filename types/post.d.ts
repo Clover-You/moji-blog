@@ -48,5 +48,6 @@ interface Post {
    * page description
    */
   description?: string
+  draft?: boolean
   [key: string]: any
 }

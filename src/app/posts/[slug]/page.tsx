@@ -80,6 +80,7 @@ export default async function PostPage(props: Props) {
       </div>
       <PostView
         content={<MarkdownView />}
+        frontmatter={frontmatter}
       >
         <Goback href="/" />
       </PostView>

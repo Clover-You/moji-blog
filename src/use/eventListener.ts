@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 
+export function useEventListener<K extends keyof WindowEventMap>(element: HTMLElement, type: K, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void
+export function useEventListener<K extends keyof WindowEventMap>(element: Window | null, type: K, listener: (this: Window | HTMLElement, ev: WindowEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void
 export function useEventListener<K extends keyof WindowEventMap>(
-  element: Window | null,
+  element: HTMLElement | Window | null,
   type: K,
-  listener: (this: Window, ev: WindowEventMap[K]) => any,
+  listener: any,
   options?: boolean | AddEventListenerOptions,
 ) {
   useEffect(() => {
@@ -11,5 +13,5 @@ export function useEventListener<K extends keyof WindowEventMap>(
 
     return () => (element ?? window).removeEventListener(type, listener, options)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [element])
 }
