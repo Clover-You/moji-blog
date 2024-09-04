@@ -30,6 +30,7 @@
   "dependencies": {
     "@iconify-json/logos": "^1.1.44",
     "@iconify-json/mdi": "^1.1.68",
+    "@iconify-json/ri": "^1.2.0",
     "@nextui-org/react": "^2.4.6",
     "@shikijs/markdown-it": "^1.14.1",
     "@vercel/speed-insights": "^1.0.12",
@@ -38,6 +39,7 @@
     "fs-extra": "^11.2.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
+    "markdown-it-table-of-contents": "^0.6.0",
     "next": "14.2.6",
     "next-themes": "^0.3.0",
     "octokit": "^4.0.2",
@@ -66,6 +68,7 @@
     "eslint-plugin-react-refresh": "^0.4.10",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
+    "markdown-it-anchor": "^9.1.0",
     "pnpm": "^9.9.0",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",

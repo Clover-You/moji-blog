@@ -5,6 +5,7 @@ import fs from 'fs-extra'
 import toml from 'toml'
 
 import './globals.css'
+import './markdown.css'
 
 import { Provider } from '#/lib/providers'
 import { Header } from '#/components/header'

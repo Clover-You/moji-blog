@@ -1,14 +1,42 @@
 'use client'
 import { useEvent } from 'react-use'
 import { Image, Modal, ModalBody, ModalContent } from '@nextui-org/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './post-view.module.css'
+import { useEventListener } from '#/use/eventListener'
 
 interface PostViewProps extends React.PropsWithChildren {
   content?: React.ReactNode
 }
 
 export function PostView({ children, content }: PostViewProps) {
+  function navigate() {
+    if (!location.hash)
+      return
+
+    const element = document.querySelector(decodeURIComponent(location.hash))
+    if (!element)
+      return
+
+    const rect = element.getBoundingClientRect()
+    const offset = window.scrollY + rect.top - 80
+    window.scrollTo({
+      top: offset,
+      behavior: 'smooth',
+    })
+
+    return true
+  }
+
+  useEventListener(null, 'hashchange', navigate)
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!navigate())
+        setTimeout(navigate, 1000)
+    }, 1)
+  }, [])
+
   return (
     <div
       className={`${styles.article} slide-enter-content`}
