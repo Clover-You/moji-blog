@@ -6,11 +6,10 @@ date: 2024-07-11 16:01:15
 categories: java
 pid: 57dab8c20e4bc84f5b59ae74ad1ce2900e9e
 last-edit: 2024-07-22 18:26:52
-duration: ~
+duration: 10min
 author: Clover
+draft: true
 ---
-
-> 编辑中
 
 先说说为什么要使用 `available` 函数: 记得当时在做一个修改的功能, 需要根据用户传递的字段判断要不要修改数据库中对应的字段。为什么不检查如果数据为 `null` 就不更新字段? 这是因为有些数据在前端会被清空，例如下拉框清空后值是 `undefined` 导致保存后无法清空该字段。为了完成这个需求，封装了一个 `getBody` 工具函数来获取 `RequestBody`，检查里面是否存在这个字段，不管它是不是 `null` 。但是一些 Servlet 容器不允许二次读取 `RequestBody` 例如 Tomcat、Jetty。
 
