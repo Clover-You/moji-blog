@@ -1,6 +1,5 @@
 'use client'
 
-import process from 'node:process'
 import React, { useCallback, useEffect } from 'react'
 import { useSessionStorage } from 'react-use'
 import { Octokit } from 'octokit'

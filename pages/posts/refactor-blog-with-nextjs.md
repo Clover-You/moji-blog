@@ -9,6 +9,7 @@ last-edit: 2024-08-28 15:39:01
 duration: 18min
 imports: |
   import { DialogDemo } from '#/components/demo/DialogDemo'
+  import { GitHubTooltipAnchor } from '#/components/GitHubTooltip'
 ---
 
 > 如果你对这个博客感兴趣，欢迎访问我的 [GitHub](https://github.com/moji-open-source/moji-blog) 仓库。它是开源的，你可以查看代码并进行贡献！
@@ -25,13 +26,13 @@ imports: |
 
 ### 初识 Hexo 和 WordPress
 
-后来，我通过 [@程序羊](https://b23.tv/9hASjFy) 了解到了 [Hexo](https://github.com/hexojs/hexo)。最初的体验非常好，它允许我将博客直接部署到 GitHub Pages 上，过程简单快捷。尽管如此，随着需求的变化，我逐渐感受到静态博客的限制，尤其是第三方评论组件加载速度特别慢。
+后来，我通过 <GitHubTooltipAnchor href="https://b23.tv/9hASjFy" user="hansonwang99">@CodeSheep</GitHubTooltipAnchor> 了解到了 [Hexo](https://github.com/hexojs/hexo)。最初的体验非常好，它允许我将博客直接部署到 GitHub Pages 上，过程简单快捷。尽管如此，随着需求的变化，我逐渐感受到静态博客的限制，尤其是第三方评论组件加载速度特别慢。
 
 于是，我尝试了 **WordPress**，它支持服务端渲染（SSR）、使用 MySQL 数据库，并且可以部署在自己的服务器上。当时，我觉得这太完美了！然而，随着时间的推移，我意识到这对学生来说过于昂贵，最终还是回到了 Hexo。
 
 ### 转向 Next.js：拥抱新技术
 
-偶然间，我读到 [@苏卡卡](https://blog.skk.moe/) 的一篇文章，他用 **Next.js + Hexo Core** 重构了他的博客 [《React Server Component 初体验与实践 —— 将博客迁移到 Next.js App Router》](https://blog.skk.moe/post/refactor-my-blog-using-nextjs-app-router/)。这给了我极大的启发，于是我也开始探索 **Next.js** 的可能性。
+偶然间，我读到 <GitHubTooltipAnchor href="https://blog.skk.moe/" user="sukkaw">@苏卡卡</GitHubTooltipAnchor> 的一篇文章，他用 **Next.js + Hexo Core** 重构了他的博客 [《React Server Component 初体验与实践 —— 将博客迁移到 Next.js App Router》](https://blog.skk.moe/post/refactor-my-blog-using-nextjs-app-router/)。这给了我极大的启发，于是我也开始探索 **Next.js** 的可能性。
 
 我选择 **Next.js** 是因为我比较钟情于 **React**，而 Next.js 提供了一些非常出色的特性，比如服务端渲染（SSR）、静态网站生成（SSG）和增量静态生成（ISR），这些功能使得网站更易于扩展和优化。此外，Next.js 还拥有内置的路由系统、支持 TypeScript 和全局 CSS，以及高效的数据获取机制（如 `generateStaticParams` 和 `generateMetadata`），这些都为我提供了灵活性和强大的开发体验。
 
