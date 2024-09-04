@@ -8,6 +8,7 @@ tags: Rust
 categories: Rust
 lastEdit: 2024-08-27 16:03:12
 ---
+[[toc]]
 
 In gRPC development, the first step is to define the communication interfaces, which is typically done using Protocol Buffers (Protobuf for short). Protobuf is a flexible and efficient serialization format widely used for defining gRPC message formats and service interfaces. Below is the `proto` file we defined, which describes the gRPC interface for user login and retrieving user information:
 

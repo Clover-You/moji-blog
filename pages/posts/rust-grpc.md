@@ -8,6 +8,7 @@ tags: Rust
 categories: Rust
 lastEdit: 2024-08-27 14:18:21
 ---
+[[toc]]
 
 > [English Version](/posts/rust-grpc-en) ｜ Translation from Chat GPT
 

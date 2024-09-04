@@ -9,6 +9,8 @@ last-edit: 2024-04-24 14:57:03
 duration: 110min
 author: Clover
 ---
+[[toc]]
+
 本文主要记录博主 Go 语言的学习过程和结果，参考 [Golang中文学习文档](https://golang.halfiisland.com/essential/std/0.intro.html)，本文不保证内容的原创性
 
 > Golang 是一个固执己见且叛逆的孩子，很多语法都反其道而行之让人无语至极

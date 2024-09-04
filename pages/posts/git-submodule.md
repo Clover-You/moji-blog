@@ -9,6 +9,7 @@ duration: 4min
 tags: Git
 lang: zh-CN
 ---
+[[toc]]
 
 在项目中需要使用到 gRPC，无论是前端还是后端都需要使用同一份 proto 文件。
 前端和后端分别存储在不同的仓库，例如 [MojiChat](https://github.com/moji-open-source/MojiChat) 和 MojiChatServer，那么我需要将 proto 文件放在哪个仓库或位置比较好呢？如果将这两个存储库移动到同一个新的存储库中，再将 proto 文件放到这个存储库中那么就实现可以前后端公用一个 proto 文件。

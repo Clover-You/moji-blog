@@ -11,6 +11,7 @@ imports: |
   import { DialogDemo } from '#/components/demo/DialogDemo'
   import { GitHubTooltipAnchor } from '#/components/GitHubTooltip'
 ---
+[[toc]]
 
 > 如果你对这个博客感兴趣，欢迎访问我的 [GitHub](https://github.com/moji-open-source/moji-blog) 仓库。它是开源的，你可以查看代码并进行贡献！
 
