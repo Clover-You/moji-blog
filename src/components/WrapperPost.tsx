@@ -4,16 +4,16 @@ import { Image, Modal, ModalBody, ModalContent } from '@nextui-org/react'
 import React, { useEffect, useRef } from 'react'
 
 import { useRouter } from 'next/navigation'
-import styles from './post-view.module.css'
+import styles from './WrapperPost.module.css'
 import { DraftTips } from './DraftTips'
 import { useEventListener } from '#/use/eventListener'
 
-interface PostViewProps extends React.PropsWithChildren {
+interface WrapperPostProps extends React.PropsWithChildren {
   content?: React.ReactNode
-  frontmatter?: Post
+  frontmatter?: PostFrontmatter
 }
 
-export function PostView({ children, content, frontmatter }: PostViewProps) {
+export function WrapperPost({ children, content, frontmatter }: WrapperPostProps) {
   const router = useRouter()
   const contentRef = useRef<HTMLElement>(null)
 

@@ -1,12 +1,8 @@
-import fg from 'fast-glob'
-import fs from 'fs-extra'
-import toml from 'toml'
 import Link from 'next/link'
+import { getConfig } from '#/core/config'
 
 export async function Copyright() {
-  const [configPath] = await fg('_config.toml')
-  const configContent = await fs.readFile(configPath, 'utf-8')
-  const config = toml.parse(configContent) as Config
+  const website = await getConfig('website')
 
   return (
     <span className="text-sm opacity-50">
@@ -23,7 +19,7 @@ export async function Copyright() {
       {' '}
       2024-PRESENT ©
       {' '}
-      {config.website.author}
+      {website.author}
     </span>
   )
 }

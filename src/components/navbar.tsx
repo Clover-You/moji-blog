@@ -3,9 +3,9 @@ import { Image, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, Navb
 import Link from 'next/link'
 
 import React from 'react'
-import { useTheme } from 'next-themes'
 import { GitHubIcon } from '#/components/icons/github-icon'
 import { GoTopBtn } from '#/components/gotop'
+import { useToggleTheme } from '#/hooks/useToggleTheme'
 
 interface MojiNavbarProps {
   items?: {
@@ -24,12 +24,7 @@ interface MojiNavbarProps {
 
 export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  const theme = useTheme()
-
-  function changeThemeMode() {
-    const mode = theme.theme === 'dark' ? 'light' : 'dark'
-    theme.setTheme(mode === theme.systemTheme ? 'system' : mode)
-  }
+  const { toggle } = useToggleTheme()
 
   return (
     <>
@@ -60,7 +55,7 @@ export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
           })}
 
           <NavbarItem>
-            <div color="foreground" className="cursor-pointer" onClick={changeThemeMode}>
+            <div color="foreground" className="cursor-pointer" onClick={toggle}>
               <span className="icon-[ph--sun] dark:icon-[ph--moon] !w-5 !h-5 align-text-bottom"></span>
             </div>
           </NavbarItem>
@@ -91,7 +86,7 @@ export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
           <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
         </NavbarContent>
 
-        <div color="foreground" className="cursor-pointer sm:hidden" onClick={changeThemeMode}>
+        <div color="foreground" className="cursor-pointer sm:hidden" onClick={toggle}>
           <span className="icon-[ph--sun] dark:icon-[ph--moon] !w-5 !h-5 align-text-bottom"></span>
         </div>
       </Navbar>

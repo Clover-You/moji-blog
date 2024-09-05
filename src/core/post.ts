@@ -16,7 +16,7 @@ async function getMarkdownFiles(path: string) {
   })
 }
 
-let __POSTS: Post[]
+let __POSTS: PostFrontmatter[]
 
 export async function getPostList() {
   if (!IsDev && __POSTS)
@@ -24,7 +24,7 @@ export async function getPostList() {
 
   const files = await getMarkdownFiles('pages/posts/*.md')
 
-  const posts = await Promise.all(files.map<Promise<Post>>(async (file) => {
+  const posts = await Promise.all(files.map<Promise<PostFrontmatter>>(async (file) => {
     const raw = await fs.readFile(file, 'utf-8')
     const { data } = matter(raw)
 
@@ -53,13 +53,13 @@ export async function getPostList() {
   return posts
 }
 
-let __POSTS_MAP: Record<string, Post>
+let __POSTS_MAP: Record<string, PostFrontmatter>
 export async function getPostRouteMap() {
   if (!IsDev && __POSTS_MAP)
     return __POSTS_MAP
 
   const posts = await getPostList()
-  const postsMap = posts.reduce<Record<string, Post>>((acc, cuur) => {
+  const postsMap = posts.reduce<Record<string, PostFrontmatter>>((acc, cuur) => {
     acc[cuur.slug] = cuur
     return acc
   }, {})

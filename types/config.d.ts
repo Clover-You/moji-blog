@@ -21,7 +21,7 @@ interface WebsiteConfig {
 type ThemeMode = 'dark' | 'light'
 
 interface ThemeConfig {
-  mode: ThemeMode
+  default: ThemeMode
 }
 
 interface NavbarItem {

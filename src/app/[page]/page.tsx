@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getPageMap } from '#/core/post'
-import { PostView } from '#/components/post-view'
+import { WrapperPost } from '#/components/WrapperPost'
 
 interface Props {
   params: {
@@ -37,9 +37,9 @@ export default async function Page(props: Props) {
         <h1>{frontmatter.title}</h1>
       </div>
 
-      <PostView>
+      <WrapperPost>
         <MarkdownView />
-      </PostView>
+      </WrapperPost>
     </div>
   )
 }

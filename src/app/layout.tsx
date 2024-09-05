@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import fg from 'fast-glob'
-import fs from 'fs-extra'
-import toml from 'toml'
 
 import './globals.css'
 import './markdown.css'
@@ -10,12 +7,11 @@ import './markdown.css'
 import { Provider } from '#/lib/providers'
 import { Header } from '#/components/header'
 import { Copyright } from '#/components/copyright'
+import { getConfig } from '#/core/config'
+import { getDefaultTheme } from '#/utils/theme'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [configPath] = await fg('_config.toml')
-  const configContent = await fs.readFile(configPath, 'utf-8')
-  const { website } = toml.parse(configContent) as Config
-
+  const website = await getConfig('website')
   const title = website.title ?? 'Moji\'s Blog'
 
   return {
@@ -35,11 +31,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const defaultTheme = await getDefaultTheme()
+
   return (
-    <html lang="en" className="light" data-theme="light" style={{ colorScheme: 'light' }}>
+    <html lang="en" className={defaultTheme} style={{ colorScheme: defaultTheme }}>
       <body>
         <SpeedInsights />
-        <Provider>
+        <Provider defaultTheme={defaultTheme}>
           <Header />
           <main className="px-7 py-10 overflow-x-hidden">
             {children}

@@ -1,14 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import fg from 'fast-glob'
-import fs from 'fs-extra'
-import toml from 'toml'
 
 import dayjs from 'dayjs'
 import { getPostBySlug, getSlugs } from '#/core/post'
-import { PostView } from '#/components/post-view'
+import { WrapperPost } from '#/components/WrapperPost'
 import { Goback } from '#/components/goback'
 import { appendStrPrefix } from '#/article'
+import { getConfig } from '#/core/config'
 
 interface Props {
   params: {
@@ -18,9 +16,7 @@ interface Props {
 
 // dynamic metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const [configPath] = await fg('_config.toml')
-  const configContent = await fs.readFile(configPath, 'utf-8')
-  const { website } = toml.parse(configContent) as Config
+  const website = await getConfig('website')
 
   const post = await getPostBySlug(params.slug)
   const { title } = post ?? {}
@@ -78,12 +74,12 @@ export default async function PostPage(props: Props) {
           </span>
         </p>
       </div>
-      <PostView
+      <WrapperPost
         content={<MarkdownView />}
         frontmatter={frontmatter}
       >
         <Goback href="/" />
-      </PostView>
+      </WrapperPost>
     </div>
   )
 }

@@ -18,13 +18,10 @@ domain = "https://www.ctong.top"
 logo = "/logo@185×185.webp"
 # 左上角 logo 文字
 logoText = "CLOVER"
-# 底部版权文案信息
-copyright = "CC BY-NC-SA 4.02024-PRESENT © Clover You"
 
 [theme]
 # 默认主题模式
-# mode = "light"
-mode = "dark"
+default = "dark"
 
 [navbar]
 items = [

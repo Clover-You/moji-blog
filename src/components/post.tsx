@@ -3,11 +3,11 @@ import dayjs from 'dayjs'
 import { appendStrPrefix } from '#/article'
 
 interface PostListProps {
-  posts: Post[]
+  posts: PostFrontmatter[]
 }
 
 export function PostList({ posts }: PostListProps) {
-  const postGroupByTime: Record<string, Post[]> = {}
+  const postGroupByTime: Record<string, PostFrontmatter[]> = {}
 
   posts.forEach((item) => {
     if (item.date) {

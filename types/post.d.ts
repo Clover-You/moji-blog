@@ -1,4 +1,4 @@
-interface Post {
+interface PostFrontmatter {
   /**
    * 文章ID
    */
