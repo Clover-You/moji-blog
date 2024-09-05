@@ -15,6 +15,10 @@ const nextConfig = {
   output: 'export',
   webpack: (config) => {
     config.plugins.push(Markdown({
+      markdownItOptions: {
+        breaks: true,
+        xhtmlOut: true
+      },
       markdownItSetup: async (md) => {
         md.use(anchor, {
           // slugify,
