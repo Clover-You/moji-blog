@@ -4,7 +4,7 @@ date: 2024-04-18 10:02:40
 lang: zh-CN
 duration: 10min
 pid: 82df2772b5f82c45aa6aeab82aa5b1e8b77a
-lastEdit: 2024-04-18 10:32:24
+lastEdit: 2024-10-08 14:35:22
 ---
 
 在用的东西
@@ -61,25 +61,27 @@ lastEdit: 2024-04-18 10:32:24
 
 > 你现在在看的这个网站就是基于 [NextJS](https://nextjs.org/) + [NextUI](https://nextui.org/) + [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) 开发的，并且部署在 [Vercel](https://vercel.com/)
 
+## Vim Shortcuts for vscode
+
+- Leader: Set the space key as the leader key.
+- Half-screen: `K` Scroll up half a screen. `J` Scroll down half a screen.
+- Fist non-blank: `H` go to the first non-blank character of the line.
+- End of Line: `L` go to the end of the current line.
+- Rename: `<leader> + r` Enter to Rename.
+- Save: `<leader> + w` Save the file.
+- ShowHover: `<leader> + k` Triggers the showHover command, displaying hover information for the symbol under the cursor.
+- To previous marker: `[ + e` Triggers the `editor.action.marker.prev` command, navigating to the previous marker in the current buffer.
+- Delete function: `<leader> + d` Trigger `delete-function.deleteFunction` action provided by the `cuixiaorui.delete-function` plugin to delete the function under the current cursor.
+- Toggle boolean: `<leader> + i` Change `true` to `false` or `false` to `true`.
+- Go to definition: `<leader> + b`  Trigger the `editor.action.revealDefinition` command.
+- Close editor/group: `<leader> + q` Close the group or active editor.
+
 ## CLI
+
 - [zsh](https://zsh.org/) - Shell
 - [pnpm](https://pnpm.io/) - 软件包管理器，类似于 npm
 - [eslint](https://eslint.org/) - Linter & Formatter
-  - [Prettier](https://prettier.io/) 好用，但是我不喜欢它那顽固的样子，可配置项太少了格式化出来的样式我不喜欢，但是多人协作这玩意儿是真香。
-  ```ts
-  watch(() => props.name, (value) => {
-    console.log('hello world')
-  })
-  ```
-  上面这段代码总是会被格式化为
-  ```ts
-  watch(
-    () => props.name,
-    (value) => {
-      console.log('hello world')
-    }
-  )
-  ```
+- [Prettier](https://prettier.io/) - Teamwork use
 
 ## Game
 
