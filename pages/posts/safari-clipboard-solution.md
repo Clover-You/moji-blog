@@ -47,18 +47,19 @@ async function onCopy(event: MouseEvent<HTMLImageElement>, sticker: Sticker) {
 
   canvas.toBlob(async (blob) => {
     try {
-      if (!blob) return
+      if (!blob)
+        return
       await writeBlob(blob)
 
       toast(`You copied 「${sticker.name}」`, {
         position: 'top-right',
         icon: <BellIcon />,
       })
-    } catch(e) {
+    }
+    catch (e) {
       console.error(e)
     }
   }, 'image/png')
-
 }
 ```
 
@@ -99,10 +100,12 @@ async function onCopy(event: React.MouseEvent<HTMLImageElement>, sticker: Sticke
   const img = event.currentTarget
 
   const canvas = imgToConvas(img)
-  if (!canvas) return
+  if (!canvas)
+    return
 
   const blob = toBlob(canvas)
-  if (!blob) return
+  if (!blob)
+    return
 
   const clipboardItem = [new ClipboardItem({ [blob.type]: blob })]
   await navigator.clipboard.write(clipboardItem)

@@ -17,10 +17,10 @@ lastEdit: 2024-10-09 14:54:19
 
 ```js
 function todo() {
-  console.log(this);
+  console.log(this)
 }
-const myTodo = todo.bind("hello world");
-myTodo(); // 输出: hello world
+const myTodo = todo.bind('hello world')
+myTodo() // 输出: hello world
 ```
 
 > 在这个示例中，`bind` 方法确保 `this` 指向了“hello world”。
@@ -28,9 +28,9 @@ myTodo(); // 输出: hello world
 甚至是通过一些魔法来处理 `this` 的问题，例如：
 
 ```js
-const _this = this;
+const _this = this
 function todo() {
-  console.log(_this);
+  console.log(_this)
 }
 ```
 
@@ -73,7 +73,7 @@ class User {
   formatUserName() {
     return `prefix-${this.userName}`
   }
-  
+
   format() {
     collection.forEach([1, 2, 3], () => {
       this.formatUserName()
@@ -88,8 +88,8 @@ class User {
 
 ```ts
 function test() {
- const format = () => 'prefix'
- format()
+  const format = () => 'prefix'
+  format()
 }
 ```
 

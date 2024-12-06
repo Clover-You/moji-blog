@@ -19,10 +19,10 @@ In JavaScript, the dynamic binding of the `this` keyword has always been a perpl
 
 ```js
 function todo() {
-  console.log(this);
+  console.log(this)
 }
-const myTodo = todo.bind("hello world");
-myTodo(); // Output: hello world
+const myTodo = todo.bind('hello world')
+myTodo() // Output: hello world
 ```
 
 > In this example, the `bind` method ensures that `this` points to "hello world".
@@ -30,9 +30,9 @@ myTodo(); // Output: hello world
 There are even tricks like storing `this` in a variable to work around this issue:
 
 ```js
-const _this = this;
+const _this = this
 function todo() {
-  console.log(_this);
+  console.log(_this)
 }
 ```
 
@@ -63,23 +63,23 @@ Arrow functions are great for callback scenarios, or wherever callbacks are freq
 ```ts
 class Collection<T = any> {
   forEach(list: T[], callback: (item: T) => void) {
-    list.forEach(callback);
+    list.forEach(callback)
   }
 }
 
-const collection = new Collection();
+const collection = new Collection()
 
 class User {
-  public userName: string;
+  public userName: string
 
   formatUserName() {
-    return `prefix-${this.userName}`;
+    return `prefix-${this.userName}`
   }
-  
+
   format() {
     collection.forEach([1, 2, 3], () => {
-      this.formatUserName();
-    });
+      this.formatUserName()
+    })
   }
 }
 ```
@@ -90,8 +90,8 @@ Besides callbacks, you might also consider using arrow functions within a functi
 
 ```ts
 function test() {
-  const format = () => 'prefix';
-  format();
+  const format = () => 'prefix'
+  format()
 }
 ```
 

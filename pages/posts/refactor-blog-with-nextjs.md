@@ -85,9 +85,9 @@ export default nextConfig
 在 `next.config.mjs` 文件中添加即可：
 
 ```js
+import Shiki from '@shikijs/markdown-it'
 // next.config.mjs
 import Markdown from 'unplugin-react-markdown/webpack'
-import Shiki from '@shikijs/markdown-it'
 
 function parseMetaString(_metaString, _code, lang) {
   return {
@@ -135,16 +135,16 @@ export default nextConfig
 ```tsx
 // src/app/posts/[slug]/page.tsx
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import fg from 'fast-glob'
-import fs from 'fs-extra'
-import toml from 'toml'
+import { appendStrPrefix } from '#/article'
+import { Goback } from '#/components/goback'
+import { PostView } from '#/components/post-view'
+import { getPostBySlug, getSlugs } from '#/core/post'
 
 import dayjs from 'dayjs'
-import { getPostBySlug, getSlugs } from '#/core/post'
-import { PostView } from '#/components/post-view'
-import { Goback } from '#/components/goback'
-import { appendStrPrefix } from '#/article'
+import fg from 'fast-glob'
+import fs from 'fs-extra'
+import { notFound } from 'next/navigation'
+import toml from 'toml'
 
 interface Props {
   params: {
