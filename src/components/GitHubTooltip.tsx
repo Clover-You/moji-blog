@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useCallback, useEffect } from 'react'
-import { useSessionStorage } from 'react-use'
-import { Octokit } from 'octokit'
 import type { LinkProps } from '@nextui-org/react'
 import { Avatar, Card, CardBody, CardFooter, CardHeader, Link, ScrollShadow, Skeleton, Tooltip } from '@nextui-org/react'
+import { Octokit } from 'octokit'
+import React, { useCallback, useEffect } from 'react'
+import { useSessionStorage } from 'react-use'
 
 interface GitHubTooltipAnchorPropsc extends LinkProps, React.PropsWithChildren {
   user: string

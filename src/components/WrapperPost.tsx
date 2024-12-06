@@ -1,12 +1,12 @@
 'use client'
-import { useEvent } from 'react-use'
-import { Image, Modal, ModalBody, ModalContent } from '@nextui-org/react'
-import React, { useEffect, useRef } from 'react'
-
-import { useRouter } from 'next/navigation'
-import styles from './WrapperPost.module.css'
-import { DraftTips } from './DraftTips'
 import { useEventListener } from '#/use/eventListener'
+import { Image, Modal, ModalBody, ModalContent } from '@nextui-org/react'
+import { useRouter } from 'next/navigation'
+
+import React, { useEffect, useRef } from 'react'
+import { useEvent } from 'react-use'
+import { DraftTips } from './DraftTips'
+import styles from './WrapperPost.module.css'
 
 interface WrapperPostProps extends React.PropsWithChildren {
   content?: React.ReactNode
@@ -96,7 +96,7 @@ export function WrapperPost({ children, content, frontmatter }: WrapperPostProps
 
 function ImagePreview() {
   const [imagePreviewState, setImagePreviewState] = React.useState(false)
-  const imageModel = React.useRef<HTMLImageElement>()
+  const imageModel = React.useRef<HTMLImageElement>(null)
   let invertClass = 'filter dark:invert'
 
   useEvent('click', (e) => {

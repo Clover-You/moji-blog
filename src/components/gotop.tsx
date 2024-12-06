@@ -19,6 +19,7 @@ export function GoTopBtn() {
       className={`fixed w-10 h-10 right-3 bottom-20 hover:opacity-100 ${showClass} z-10 `}
       variant="light"
       onClick={toTop}
+      aria-label="Go to the top"
     >
       <span className="icon-[humbleicons--arrow-up] w-4 h-4"></span>
     </Button>

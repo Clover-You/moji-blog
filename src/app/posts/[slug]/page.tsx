@@ -1,24 +1,26 @@
 import type { Metadata } from 'next'
+import { appendStrPrefix } from '#/article'
+
+import { Goback } from '#/components/goback'
+import { WrapperPost } from '#/components/WrapperPost'
+import { getConfig } from '#/core/config'
+import { getPostBySlug, getSlugs } from '#/core/post'
+import dayjs from 'dayjs'
 import { notFound } from 'next/navigation'
 
-import dayjs from 'dayjs'
-import { getPostBySlug, getSlugs } from '#/core/post'
-import { WrapperPost } from '#/components/WrapperPost'
-import { Goback } from '#/components/goback'
-import { appendStrPrefix } from '#/article'
-import { getConfig } from '#/core/config'
-
 interface Props {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 // dynamic metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const website = await getConfig('website')
 
-  const post = await getPostBySlug(params.slug)
+  const { slug } = await params
+
+  const post = await getPostBySlug(slug)
   const { title } = post ?? {}
   const rawTitle = website.title ?? 'Moji\' Blog'
 
@@ -52,7 +54,8 @@ async function getPost(slug: string) {
 }
 
 export default async function PostPage(props: Props) {
-  const postModule = await getPost(props.params.slug)
+  const { slug } = await props.params
+  const postModule = await getPost(slug)
 
   if (!postModule)
     return notFound()

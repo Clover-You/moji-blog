@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Copyright } from '#/components/copyright'
 
-import './globals.css'
-import './markdown.css'
+import { Header } from '#/components/header'
+import { getConfig } from '#/core/config'
 
 import { Provider } from '#/lib/providers'
-import { Header } from '#/components/header'
-import { Copyright } from '#/components/copyright'
-import { getConfig } from '#/core/config'
 import { getDefaultTheme } from '#/utils/theme'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import './globals.css'
+import './markdown.css'
 
 export async function generateMetadata(): Promise<Metadata> {
   const website = await getConfig('website')
@@ -34,7 +34,7 @@ export default async function RootLayout({
   const defaultTheme = await getDefaultTheme()
 
   return (
-    <html lang="en" className={defaultTheme} style={{ colorScheme: defaultTheme }}>
+    <html lang="en" className={defaultTheme} style={{ colorScheme: defaultTheme }} suppressHydrationWarning>
       <body>
         <SpeedInsights />
         <Provider defaultTheme={defaultTheme}>

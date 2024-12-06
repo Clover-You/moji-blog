@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import toml from 'toml'
 import fg from 'fast-glob'
 import fs from 'fs-extra'
+import toml from 'toml'
+import { describe, expect, it } from 'vitest'
 
 describe('config', () => {
   it('read config file', async () => {

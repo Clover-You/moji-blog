@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation'
-import { getPageMap } from '#/core/post'
 import { WrapperPost } from '#/components/WrapperPost'
+import { getPageMap } from '#/core/post'
+import { notFound } from 'next/navigation'
 
 interface Props {
-  params: {
+  params: Promise<{
     page: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -24,12 +24,13 @@ async function getPage(page: string) {
 }
 
 export default async function Page(props: Props) {
-  const page = await getPage(props.params.page)
+  const { page } = await props.params
+  const pageMeta = await getPage(page)
 
   if (!page)
     return notFound()
 
-  const { default: MarkdownView, frontmatter } = page
+  const { default: MarkdownView, frontmatter } = pageMeta
 
   return (
     <div className="mx-auto px-6 container">

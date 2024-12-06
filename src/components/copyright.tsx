@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { getConfig } from '#/core/config'
+import Link from 'next/link'
 
 export async function Copyright() {
   const website = await getConfig('website')

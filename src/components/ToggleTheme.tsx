@@ -9,6 +9,7 @@ export function ToggleTheme() {
       onClick={() => {
         document.documentElement.classList.toggle('dark')
       }}
+      aria-label="Toggle theme"
     >
       <span className="icon-[ph--sun] dark:icon-[ph--moon] !w-5 !h-5 align-text-bottom"></span>
     </Button>

@@ -1,11 +1,11 @@
 'use client'
+import { GoTopBtn } from '#/components/gotop'
+import { GitHubIcon } from '#/components/icons/github-icon'
+
+import { useToggleTheme } from '#/hooks/useToggleTheme'
 import { Image, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import Link from 'next/link'
-
 import React from 'react'
-import { GitHubIcon } from '#/components/icons/github-icon'
-import { GoTopBtn } from '#/components/gotop'
-import { useToggleTheme } from '#/hooks/useToggleTheme'
 
 interface MojiNavbarProps {
   items?: {
@@ -35,7 +35,7 @@ export function MojiNavbar({ items, logoText, logo }: MojiNavbarProps) {
       >
         <Link href="/" color="foreground">
           <NavbarBrand>
-            <Image src={logo} width={25} height={25} radius="none" />
+            <Image src={logo} width={25} height={25} radius="none" alt="Site Logo" aria-label="Site Logo" />
             <p className="font-bold text-inherit ml-2">{logoText}</p>
           </NavbarBrand>
         </Link>
